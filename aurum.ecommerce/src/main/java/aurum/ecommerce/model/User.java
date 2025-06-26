@@ -17,16 +17,10 @@ public class User {
 	
 	
 	
-	public User(Long id_user, String name, String email, String password, String phone, String address) {
-		super();
-		this.id_user = id_user;
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.phone = phone;
-		this.address = address;
-	}
+
 	
+	public User() {
+	}
 	public Long getId_user() {
 		return id_user;
 	}

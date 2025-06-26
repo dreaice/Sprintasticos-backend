@@ -1,5 +1,11 @@
 package aurum.ecommerce.repository;
 
-public interface PrivilegeRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import aurum.ecommerce.model.Privilege;
+
+@Repository
+public interface PrivilegeRepository extends CrudRepository<Privilege, Long> {
 
 }
