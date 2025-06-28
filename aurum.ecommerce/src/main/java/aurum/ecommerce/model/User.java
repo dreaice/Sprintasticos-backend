@@ -3,6 +3,8 @@ package aurum.ecommerce.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,8 +22,6 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
 	private Long id_user;
 
 	@Column(name="name", nullable = false, length = 50) // falta revisar que va en length de aqui en adelante
@@ -46,7 +46,7 @@ public class User {
         joinColumns = @JoinColumn(name = "id_user"), // Clave foránea hacia la tabla usuarios
         inverseJoinColumns = @JoinColumn(name = "id_privilege") // Clave foránea hacia la tabla roles
     )
-	private Set<Privilege> roles= new HashSet<>();
+	private Set<Privilege> roles = new HashSet<>();
 	
 
 	
