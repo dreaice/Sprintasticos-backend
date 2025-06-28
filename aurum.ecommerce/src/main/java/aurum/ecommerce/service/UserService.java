@@ -1,7 +1,7 @@
 package aurum.ecommerce.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import aurum.ecommerce.model.User;
 
@@ -14,7 +14,7 @@ public interface UserService {
 
 		User save(User user);
 	
-		User update(Long id, User user);
+		Optional <User> update(Long id, User user);
 
 		User deleteById(Long id);
     

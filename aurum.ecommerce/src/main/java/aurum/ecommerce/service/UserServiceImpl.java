@@ -1,6 +1,7 @@
 package aurum.ecommerce.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -35,11 +36,6 @@ UserRepository userRepository;
 		return userRepository.save(user);
 	}
 
-	@Override
-	public User update(Long id, User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public User deleteById(Long id) {
@@ -52,8 +48,18 @@ UserRepository userRepository;
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Optional<User> update(Long id, User user) {
+	    return userRepository.findById(id).map(existeUsuario -> {
+	        existeUsuario.setName(user.getName());
+	        existeUsuario.setEmail(user.getEmail());
+	        existeUsuario.setPassword(user.getPassword());
+	        existeUsuario.setPhone(user.getPhone());
+	        existeUsuario.setAddress(user.getAddress());
+	        existeUsuario.setRoles(user.getRoles());
+	        return userRepository.save(existeUsuario);
+	    });
+	}}
     
-	
-	
-    
-}
+

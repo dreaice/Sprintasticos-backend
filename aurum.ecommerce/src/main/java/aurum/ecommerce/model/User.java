@@ -50,6 +50,12 @@ public class User {
 	
 
 	
+	public Set<Privilege> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Privilege> roles) {
+		this.roles = roles;
+	}
 	public User() {
 	}
 	public Long getId_user() {
