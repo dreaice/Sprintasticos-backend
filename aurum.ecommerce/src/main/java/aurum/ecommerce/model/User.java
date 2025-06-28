@@ -1,6 +1,18 @@
 package aurum.ecommerce.model;
 
-import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
@@ -8,14 +20,33 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Column(name="id_user", nullable = false) // ya esta
 	private Long id_user;
+
+	@Column(name="name", nullable = false, length = 50) // falta revisar que va en length de aqui en adelante
 	private String name;
+
+	@Column(name="email", nullable = false, length = 50) 
 	private String email;
+
+	@Column(name="password", nullable = false, length = 50) 
 	private String password;
+
+	@Column(name="phone", nullable = false, length = 50) 
 	private String phone;
+
+	@Column(name="address", nullable = false, length = 50) 
 	private String address;
-	
-	
+
+	// Relación muchos a muchos con la entidad Rol
+    @ManyToMany(fetch = FetchType.EAGER) // EAGER carga los roles junto con el usuario
+    @JoinTable(
+        name = "user_has_privilege", // Nombre de la tabla intermedia en la base de datos
+        joinColumns = @JoinColumn(name = "id_privilege"), // Clave foránea hacia la tabla usuarios
+        inverseJoinColumns = @JoinColumn(name = "id_user") // Clave foránea hacia la tabla roles
+    )
+	private Set<Privilege> roles= new HashSet<>();
 	
 
 	

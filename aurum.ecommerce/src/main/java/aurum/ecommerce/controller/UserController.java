@@ -22,6 +22,15 @@ public class UserController {
 	}
 	@GetMapping
 	public List<User> obtenerTodosLosUsuarios(){
-		return user.obtenerTodosLosUsuarios();
+		return user.findAll();
+		
 	}
+	
+	/* Solo se va a comentar
+	@PostMapping
+	public ResponseEntity<User> createdUser(@RequestBody User usuario){
+    User creado= user.createdUser(usuario);
+    return new ResponseEntity<>(creado, HttpStatus.CREATED);
+	}
+	*/
 }

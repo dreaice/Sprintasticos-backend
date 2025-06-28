@@ -1,6 +1,15 @@
 package aurum.ecommerce.model;
 
-import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -8,8 +17,16 @@ import jakarta.persistence.Table;
 public class Privilege {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
+
+@Column(name="id_privilege", nullable= false)
 private long id_privilege;
+
+@Column(name="privilege_name", nullable= false, length= 50) // Hay que verificar length
 private String privilege_name;
+
+@ManyToMany(mappedBy= "privileges", fetch= FetchType.EAGER) 
+private Set <User> usuarios=new HashSet();
+
 
 public Privilege(long id_privilege, String privilege_name) {
 	super();
