@@ -21,5 +21,39 @@ UserRepository userRepository;
 
         return userRepository.findAll();
     }
+
+
+	@Override
+	public User findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User save(User user) {
+		// TODO Auto-generated method stub
+		return userRepository.save(user);
+	}
+
+	@Override
+	public User update(Long id, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User deleteById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> save() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    
+	
+	
     
 }

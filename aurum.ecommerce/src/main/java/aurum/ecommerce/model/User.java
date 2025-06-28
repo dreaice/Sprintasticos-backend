@@ -21,13 +21,13 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	@Column(name="id_user", nullable = false) // ya esta
+
 	private Long id_user;
 
 	@Column(name="name", nullable = false, length = 50) // falta revisar que va en length de aqui en adelante
 	private String name;
 
-	@Column(name="email", nullable = false, length = 50) 
+	@Column(name="email", nullable = false, length = 50, unique =true) 
 	private String email;
 
 	@Column(name="password", nullable = false, length = 50) 
@@ -43,8 +43,8 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER) // EAGER carga los roles junto con el usuario
     @JoinTable(
         name = "user_has_privilege", // Nombre de la tabla intermedia en la base de datos
-        joinColumns = @JoinColumn(name = "id_privilege"), // Clave foránea hacia la tabla usuarios
-        inverseJoinColumns = @JoinColumn(name = "id_user") // Clave foránea hacia la tabla roles
+        joinColumns = @JoinColumn(name = "id_user"), // Clave foránea hacia la tabla usuarios
+        inverseJoinColumns = @JoinColumn(name = "id_privilege") // Clave foránea hacia la tabla roles
     )
 	private Set<Privilege> roles= new HashSet<>();
 	

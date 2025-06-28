@@ -18,21 +18,17 @@ public class Privilege {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 
-@Column(name="id_privilege", nullable= false)
+
 private long id_privilege;
 
 @Column(name="privilege_name", nullable= false, length= 50) // Hay que verificar length
 private String privilege_name;
 
-@ManyToMany(mappedBy= "privileges", fetch= FetchType.EAGER) 
+
+
+@ManyToMany(mappedBy= "roles", fetch= FetchType.EAGER) 
 private Set <User> usuarios=new HashSet();
 
-
-public Privilege(long id_privilege, String privilege_name) {
-	super();
-	this.id_privilege = id_privilege;
-	this.privilege_name = privilege_name;
-}
 
 public long getId_privilege() {
 	return id_privilege;
