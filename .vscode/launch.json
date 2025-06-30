@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<aurum.ecommerce>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "aurum.ecommerce.Application",
+            "projectName": "aurum.ecommerce",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
