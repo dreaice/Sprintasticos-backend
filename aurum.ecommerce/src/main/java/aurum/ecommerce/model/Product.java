@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
@@ -50,13 +51,13 @@ id_stone bigint
 	// Relación muchos a uno con la entidad JOYAS (STONE)
     @ManyToOne(fetch = FetchType.EAGER) // EAGER carga los roles junto con el usuario
     @JoinColumn(name = "id_stone") 
-    @JsonIgnoreProperties("productos")
+    @JsonBackReference("stone-productos")
 	private Stone stone;
 
 	// Relación muchos a uno con la entidad CATEGORIA
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "id_category")
-    @JsonIgnoreProperties("productos")
+    @JsonBackReference("categoria-productos")
 	private Category category;
 
 
@@ -185,5 +186,3 @@ id_stone bigint
 	
 	
 }
-
-

@@ -33,7 +33,7 @@ public class Stone {
 	private String stone_name;
 	
 	
-	@OneToMany(mappedBy = "stone") //Para crear lista que tenemos en categoria  
+	@OneToMany(mappedBy = "stone") 
 	@JsonManagedReference(value = "stone-productos")
 	private List<Product> productos;
 	
