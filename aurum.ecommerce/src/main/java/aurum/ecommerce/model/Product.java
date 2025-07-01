@@ -47,20 +47,19 @@ id_stone bigint
 	@Column(name="stock", nullable = false, length = 50) 
 	private int stock;
 
-	// Relación muchos a muchos con la entidad Rol
+	// Relación muchos a uno con la entidad JOYAS (STONE)
     @ManyToOne(fetch = FetchType.EAGER) // EAGER carga los roles junto con el usuario
-    @JsonBackReference(value = "stone-productos")
-    @JoinColumn(
-        name = "id_stone" 
-    ) 
-    
-    private Stone stone;
-    
+    @JoinColumn(name = "id_stone") 
+    @JsonIgnoreProperties("productos")
+	private Stone stone;
+
+	// Relación muchos a uno con la entidad CATEGORIA
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonBackReference(value = "categoria-productos")
     @JoinColumn( name = "id_category")
-    
-    private Category category;
+    @JsonIgnoreProperties("productos")
+	private Category category;
+
+
 
 	public Long getId_jewelry() {
 		return id_jewelry;
