@@ -1,4 +1,4 @@
-package aurum.ecommerce.service;
+package aurum.ecommerce.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import aurum.ecommerce.model.User;
 import aurum.ecommerce.repository.UserRepository;
+import aurum.ecommerce.service.UserService;
 
 @Service
 public class  UserServiceImpl implements UserService {
