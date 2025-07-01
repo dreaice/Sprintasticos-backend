@@ -2,6 +2,8 @@ package aurum.ecommerce.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,8 +34,9 @@ public class Stone {
 	
 	
 	@OneToMany(mappedBy = "stone") //Para crear lista que tenemos en categoria  
+	@JsonManagedReference(value = "stone-productos")
 	private List<Product> productos;
-
+	
 
 	public Long getId_stone() {
 		return id_stone;

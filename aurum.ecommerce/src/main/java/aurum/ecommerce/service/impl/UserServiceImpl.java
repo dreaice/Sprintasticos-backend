@@ -12,8 +12,7 @@ import aurum.ecommerce.service.UserService;
 @Service
 public class  UserServiceImpl implements UserService {
 
-UserRepository userRepository;
-
+	UserRepository userRepository ;
     public UserServiceImpl(UserRepository userRepository) {
     this.userRepository = userRepository;
 }
@@ -63,12 +62,3 @@ UserRepository userRepository;
 	    });
 	}}
     
-
-
-
-
-
-
-
-
-

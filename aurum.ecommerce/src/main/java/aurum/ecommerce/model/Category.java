@@ -2,6 +2,9 @@ package aurum.ecommerce.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +33,8 @@ category_name varchar(100)
 	private String category_name;
 	
 	
-	@OneToMany(mappedBy = "category") //Para crear lista que tenemos en categoria  
+	@OneToMany(mappedBy = "category") //Para crear lista que tenemos en categoria
+	@JsonManagedReference(value = "categoria-productos") 
 	private List<Product> productos;
 
 

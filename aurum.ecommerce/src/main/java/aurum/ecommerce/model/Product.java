@@ -3,6 +3,9 @@ package aurum.ecommerce.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -24,7 +27,7 @@ id_stone bigint
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_product;
+	private Long id_jewelry;
 
 	@Column(name="name", nullable = false, length = 50) 
 	private String name;
@@ -46,6 +49,7 @@ id_stone bigint
 
 	// Relación muchos a muchos con la entidad Rol
     @ManyToOne(fetch = FetchType.EAGER) // EAGER carga los roles junto con el usuario
+    @JsonBackReference(value = "stone-productos")
     @JoinColumn(
         name = "id_stone" 
     ) 
@@ -53,16 +57,17 @@ id_stone bigint
     private Stone stone;
     
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference(value = "categoria-productos")
     @JoinColumn( name = "id_category")
     
     private Category category;
 
-	public Long getId_product() {
-		return id_product;
+	public Long getId_jewelry() {
+		return id_jewelry;
 	}
 
-	public void setId_product(Long id_product) {
-		this.id_product = id_product;
+	public void setId_jewelry(Long id_jewelry) {
+		this.id_jewelry = id_jewelry;
 	}
 
 	public String getName() {
@@ -132,8 +137,8 @@ id_stone bigint
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Product [id_product=");
-		builder.append(id_product);
+		builder.append("Product [id_jewelry=");
+		builder.append(id_jewelry);
 		builder.append(", name=");
 		builder.append(name);
 		builder.append(", description=");
@@ -151,7 +156,7 @@ id_stone bigint
 		builder.append(", category=");
 		builder.append(category);
 		builder.append(", getId_product()=");
-		builder.append(getId_product());
+		builder.append(getId_jewelry());
 		builder.append(", getName()=");
 		builder.append(getName());
 		builder.append(", getDescription()=");
