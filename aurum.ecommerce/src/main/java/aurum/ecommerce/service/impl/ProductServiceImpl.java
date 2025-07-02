@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import aurum.ecommerce.model.Product;
 import aurum.ecommerce.repository.ProductRepository;
 import aurum.ecommerce.service.ProductService;
-
+import jakarta.persistence.EntityNotFoundException;
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -53,10 +53,17 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product deleteById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteById(Long id) {
+	Product product = productRepository.findById(id)
+			.orElseThrow(()-> new EntityNotFoundException("usuario no encontrado"));
+		productRepository.delete(product);
+	
+	
+	
+	
+		
 	}
+
 	
 	
 

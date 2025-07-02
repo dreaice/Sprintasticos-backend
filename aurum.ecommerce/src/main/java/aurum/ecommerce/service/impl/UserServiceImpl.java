@@ -63,7 +63,10 @@ public class  UserServiceImpl implements UserService {
 	@Override
 	public void deleteById(Long id) {
 		Optional <User> existeUsuarios= findById(id);
-		userRepository.delete(existeUsuarios.get());
+		User user = existeUsuarios.get();
+		user.getRoles().clear();
+		userRepository.save(user);
+		userRepository.delete(user);
 		
 	}
 
