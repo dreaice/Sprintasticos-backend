@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import aurum.ecommerce.model.User;
 import aurum.ecommerce.repository.UserRepository;
 import aurum.ecommerce.service.UserService;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class  UserServiceImpl implements UserService {
@@ -23,25 +24,22 @@ public class  UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-
-	@Override
-	public User findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+    @Override
+	public Optional<User> findById(Long id) {
+		
+		return userRepository.findById(id);
 	}
+	
 
 	@Override
 	public User save(User user) {
 		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
-
-
-	@Override
-	public User deleteById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+	
+	
 
 	@Override
 	public List<User> save() {
@@ -60,5 +58,14 @@ public class  UserServiceImpl implements UserService {
 	        existeUsuario.setRoles(user.getRoles());
 	        return userRepository.save(existeUsuario);
 	    });
-	}}
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		Optional <User> existeUsuarios= findById(id);
+		userRepository.delete(existeUsuarios.get());
+		
+	}
+
+	}
     
