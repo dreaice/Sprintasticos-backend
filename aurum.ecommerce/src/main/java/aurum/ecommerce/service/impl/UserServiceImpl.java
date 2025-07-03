@@ -1,4 +1,4 @@
-package aurum.ecommerce.service;
+package aurum.ecommerce.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 
 import aurum.ecommerce.model.User;
 import aurum.ecommerce.repository.UserRepository;
+import aurum.ecommerce.service.UserService;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class  UserServiceImpl implements UserService {
 
-UserRepository userRepository;
-
+	UserRepository userRepository ;
     public UserServiceImpl(UserRepository userRepository) {
     this.userRepository = userRepository;
 }
@@ -23,25 +24,22 @@ UserRepository userRepository;
         return userRepository.findAll();
     }
 
-
-	@Override
-	public User findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+    @Override
+	public Optional<User> findById(Long id) {
+		
+		return userRepository.findById(id);
 	}
+	
 
 	@Override
 	public User save(User user) {
 		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
-
-
-	@Override
-	public User deleteById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+	
+	
 
 	@Override
 	public List<User> save() {
@@ -60,14 +58,17 @@ UserRepository userRepository;
 	        existeUsuario.setRoles(user.getRoles());
 	        return userRepository.save(existeUsuario);
 	    });
-	}}
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		Optional <User> existeUsuarios= findById(id);
+		User user = existeUsuarios.get();
+		user.getRoles().clear();
+		userRepository.save(user);
+		userRepository.delete(user);
+		
+	}
+
+	}
     
-
-
-
-
-
-
-
-
-

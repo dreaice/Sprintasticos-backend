@@ -10,13 +10,13 @@ public interface UserService {
 	
 	List<User> save();
 	
-		User findById(Long id);
+		Optional <User> findById(Long id);
 
 		User save(User user);
 	
 		Optional <User> update(Long id, User user);
 
-		User deleteById(Long id);
+		void deleteById(Long id);
     
 
     }
