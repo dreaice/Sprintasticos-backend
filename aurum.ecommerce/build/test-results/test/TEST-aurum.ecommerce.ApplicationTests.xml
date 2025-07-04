@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="aurum.ecommerce.ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-04T10:53:43.532Z" hostname="POLLOGRAMMERG" time="0.532">
+  <properties/>
+  <testcase name="contextLoads()" classname="aurum.ecommerce.ApplicationTests" time="0.532"/>
+  <system-out><![CDATA[04:53:38.109 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [aurum.ecommerce.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+04:53:38.243 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration aurum.ecommerce.Application for test class aurum.ecommerce.ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2025-07-04T04:53:38.730-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] aurum.ecommerce.ApplicationTests         : Starting ApplicationTests using Java 17.0.14 with PID 8656 (started by OswaldoR in C:\Users\OswaldoR\Documents\GenerationBootcamp\Backend-t12\Sprintasticos-backend\aurum.ecommerce)
+2025-07-04T04:53:38.731-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] aurum.ecommerce.ApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-07-04T04:53:39.516-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-04T04:53:39.613-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 6 JPA repository interfaces.
+2025-07-04T04:53:40.049-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-04T04:53:40.481-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@664db2ca
+2025-07-04T04:53:40.484-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-04T04:53:40.524-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-04T04:53:40.585-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-04T04:53:40.648-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-04T04:53:41.085-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-04T04:53:41.292-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-04T04:53:42.292-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-04T04:53:42.296-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04T04:53:42.736-06:00  WARN 8656 --- [aurum.ecommerce] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-04T04:53:43.480-06:00  INFO 8656 --- [aurum.ecommerce] [    Test worker] aurum.ecommerce.ApplicationTests         : Started ApplicationTests in 5.043 seconds (process running for 6.362)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
